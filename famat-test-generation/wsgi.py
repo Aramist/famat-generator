@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Famat-Test-Generation.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "famat-test-generation.settings")
 
 application = get_wsgi_application()

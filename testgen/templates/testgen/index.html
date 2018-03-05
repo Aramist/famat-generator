@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Add Questions</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="{% static "testgen/css/materialize.min.css" %}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static "testgen/css/style.css" %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             showProcessingMessages: false,
@@ -27,72 +28,73 @@
     <div class="col s12 m5">
         <div class="container">
             <div id="question-info-container" class="teal lighten-5 z-depth-1 card-panel">
-                <form name="question-info">
+                <form name="question-info" action="submit_question" method="post">
+                    {% csrf_token %}
                     <div class="row" id="question-body-container">
                         <div class="input-field">
-                            <textarea id="question-body" class="materialize-textarea" data-length="500"></textarea>
+                            <textarea id="question-body" name="question_body" class="materialize-textarea" data-length="500"></textarea>
                             <label for="question-body">Question Body</label>
                         </div>
                     </div>
                     <div class="row" id="answer-choice-a-container">
                         <div class="input-field">
-                            <input type="text" id="answer-choice-a" data-length="100"/>
+                            <input type="text" id="answer-choice-a" name="choice_a" data-length="100"/>
                             <label for="answer-choice-a">Answer Choice A</label>
                         </div>
                     </div>
                     <div class="row" id="answer-choice-b-container">
                         <div class="input-field">
-                            <input type="text" id="answer-choice-b" data-length="100"/>
+                            <input type="text" id="answer-choice-b" name="choice_b" data-length="100"/>
                             <label for="answer-choice-b">Answer Choice B</label>
                         </div>
                     </div>
                     <div class="row" id="answer-choice-c-container">
                         <div class="input-field">
-                            <input type="text" id="answer-choice-c" data-length="100"/>
+                            <input type="text" id="answer-choice-c" name="choice_c" data-length="100"/>
                             <label for="answer-choice-c">Answer Choice C</label>
                         </div>
                     </div>
                     <div class="row" id="answer-choice-d-container">
                         <div class="input-field">
-                            <input type="text" id="answer-choice-d" data-length="100"/>
+                            <input type="text" id="answer-choice-d" name="choice_d" data-length="100"/>
                             <label for="answer-choice-d">Answer Choice D</label>
                         </div>
                     </div>
                     <div class="row" id="answer-choice-e-container">
                         <div class="input-field">
-                            <input type="text" id="answer-choice-e" data-length="100"/>
+                            <input type="text" id="answer-choice-e" name="choice_e" data-length="100"/>
                             <label for="answer-choice-e">Answer Choice E</label>
                         </div>
                     </div>
                     <div class="row" id="question-source-container">
                         <p>Question Source:</p>
                         <div>
-                            <input name="question-source-event" type="radio" id="jan" />
+                            <input name="source_event" type="radio" id="jan" value="jan"/>
                             <label for="jan">January Regional</label>
                         </div>
                         <div>
-                            <input name="question-source-event" type="radio" id="feb" />
+                            <input name="source_event" type="radio" id="feb" value="feb"/>
                             <label for="feb">February Regional</label>
                         </div>
                         <div>
-                            <input name="question-source-event" type="radio" id="mar" />
+                            <input name="source_event" type="radio" id="mar" value="mar"/>
                             <label for="mar">March Regional</label>
                         </div>
                         <div>
-                            <input name="question-source-event" type="radio" id="inv" />
+                            <input name="source_event" type="radio" id="inv" value="inv"/>
                             <label for="inv">Invitational</label>
                         </div>
                         <div>
-                            <input name="question-source-event" type="radio" id="sta" />
+                            <input name="source_event" type="radio" id="sta" value="sta"/>
                             <label for="sta">State Convention</label>
                         </div>
                         <div>
-                            <input name="question-source-event" type="radio" id="nat" />
+                            <input name="source_event" type="radio" id="nat" value="nat"/>
                             <label for="nat">National Convention</label>
                         </div>
                         <div>
                             <div class="input-field">
-                                <input type="number" id="question-source-year"/>
+                                <input type="number" name="source_year" id="question-source-year"/>
                                 <label for="question-source-year">Year</label>
                             </div>
                         </div>
@@ -130,7 +132,7 @@
     </div>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="application/javascript" src="js/materialize.min.js"></script>
-<script type="application/javascript" src="js/preview.js"></script>
+<script type="application/javascript" src="{% static "testgen/js/materialize.min.js" %}"></script>
+<script type="application/javascript" src="{% static "testgen/js/preview.js" %}"></script>
 </body>
 </html>

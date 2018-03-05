@@ -3,7 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Famat-Test-Generation.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "famat-test-generation.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

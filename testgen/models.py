@@ -6,16 +6,16 @@ class Context(models.Model):
 
 
 class Question(models.Model):
-    event = models.IntegerField()
-    year = models.IntegerField()
+    source_event = models.IntegerField()
+    source_year = models.IntegerField()
     date_added = models.DateTimeField(auto_now=True)
-    latex = models.CharField(max_length=500)
+    question_body = models.CharField(max_length=500)
     solution_latex = models.CharField(max_length=500)
-    answer = models.CharField(max_length=10)
+    accepted_answer = models.CharField(max_length=10)
     context = models.ForeignKey(Context, blank=True, null=True, on_delete=models.CASCADE)
 
 
-class Answer(models.Model):
+class AnswerChoice(models.Model):
     latex = models.CharField(max_length=100)
     letter = models.CharField(max_length=1)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
